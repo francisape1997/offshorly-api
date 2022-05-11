@@ -8,4 +8,9 @@ trait NoteScopes
     {
         return $query->where('created_by', auth()->user()->id);
     }
+
+    public function scopeDescending($query)
+    {
+        return $query->orderBy('created_at', 'DESC');
+    }
 }

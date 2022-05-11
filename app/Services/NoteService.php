@@ -11,7 +11,7 @@ class NoteService
 
     public function getUserNotes()
     {
-        return $this->note->owner()->paginate();
+        return $this->note->owner()->descending()->paginate();
     }
 
     public function storeNote($request)
