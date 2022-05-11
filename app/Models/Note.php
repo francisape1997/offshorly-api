@@ -11,5 +11,5 @@ class Note extends Model
 {
     use HasFactory, NoteScopes;
 
-    protected $fillable = ['title', 'body'];
+    protected $fillable = ['title', 'body', 'created_by'];
 }
