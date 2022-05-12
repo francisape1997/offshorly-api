@@ -21,10 +21,20 @@ class NoteService
 
     public function storeNote($request)
     {
-        return $this->note->create([
-            ...$request->validated(),
+        // PHP 8 version. Since PHP 8.1 is not currently supported on AWS
+        $data = [
+            'title' => $request->title,
+            'body' => $request->body,
             'created_by' => auth()->user()->id,
-        ]);
+        ];
+
+        return $this->note->create($data);
+
+        // PHP 8.1 Version
+        // return $this->note->create([
+        //     ...$request->validated(),
+        //     'created_by' => auth()->user()->id,
+        // ]);
     }
 
     public function updateNote($request, $id)
