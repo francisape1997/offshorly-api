@@ -18,7 +18,12 @@ use App\Http\Resources\EditNoteResource;
 
 class NoteController extends Controller
 {
-    public function __construct(private readonly NoteService $noteService) {}
+    private $noteService;
+
+    public function __construct(NoteService $noteService)
+    {
+        $this->noteService = $noteService;
+    }
 
     public function index()
     {

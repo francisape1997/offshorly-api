@@ -10,7 +10,12 @@ use App\Http\Requests\RegisterUserRequest;
 
 class RegisterController extends Controller
 {
-    public function __construct(private readonly RegisterService $registerService) {}
+    private $registerService;
+
+    public function __construct(RegisterService $registerService)
+    {
+        $this->registerService = $registerService;
+    }
 
     public function __invoke(RegisterUserRequest $request)
     {

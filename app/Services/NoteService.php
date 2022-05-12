@@ -7,7 +7,12 @@ use App\Models\Note;
 
 class NoteService
 {
-    public function __construct(private readonly Note $note) {}
+    private $note;
+
+    public function __construct(Note $note)
+    {
+        $this->note = $note;
+    }
 
     public function getUserNotes()
     {

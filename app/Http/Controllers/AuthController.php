@@ -10,7 +10,12 @@ use App\Services\AuthService;
 
 class AuthController extends Controller
 {
-    public function __construct(private readonly AuthService $authService) {}
+    private $authService;
+
+    public function __construct(AuthService $authService)
+    {
+        $this->authService = $authService;
+    }
 
     public function login(AuthLoginRequest $request)
     {
